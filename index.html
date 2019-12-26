@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+
+<html lang='en' class=''>
+<head>
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+
+<style class="cp-pen-styles">
+
+#header, #footer {
+  background-color: blue;
+  color: #fff;
+  padding: 0.2em;
+  padding-left: 1em;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5em;
+}
+
+</style>
+
+</head>
+
+<body>
+<div id="app"></div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/react-router/2.8.1/ReactRouter.min.js'></script>
+<script>
+  var _ReactRouter = ReactRouter,
+    Router = _ReactRouter.Router,
+    Route = _ReactRouter.Route,
+    IndexRoute = _ReactRouter.IndexRoute,
+    Link = _ReactRouter.Link;
+
+
+var style = {
+  color: '#fff',
+  backgroundColor: 'red'
+};
+
+var Header = React.createClass({
+  displayName: 'Header',
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      { id: 'header' },
+      React.createElement(
+        'h3',
+        null,
+        'App Header'
+      ),
+      React.createElement(
+        Link,
+        { to: '/' },
+        'Page 1'
+      ),
+      React.createElement(
+        Link,
+        { to: '/two' },
+        'Page 2'
+      ),
+      React.createElement(
+        Link,
+        { to: '/three' },
+        'Page 3'
+      )
+    );
+  }
+});
+
+var one = React.createClass({
+  displayName: 'one',
+
+  render: function render() {
+    return React.createElement(
+      'h1',
+      null,
+      'Page 1'
+    );
+  }
+});
+
+var two = React.createClass({
+  displayName: 'two',
+
+  render: function render() {
+    return React.createElement(
+      'h1',
+      null,
+      'Page 2'
+    );
+  }
+});
+
+var three = React.createClass({
+  displayName: 'three',
+
+  render: function render() {
+    return React.createElement(
+      'h1',
+      null,
+      'Page 3'
+    );
+  }
+});
+
+var Footer = React.createClass({
+  displayName: 'Footer',
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      { id: 'footer' },
+      React.createElement(
+        'h3',
+        null,
+        'App Footer'
+      )
+    );
+  }
+});
+
+var app = React.createClass({
+  displayName: 'app',
+
+  render: function render() {
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(Header, null),
+      this.props.children,
+      React.createElement(Footer, null)
+    );
+  }
+});
+
+ReactDOM.render(React.createElement(
+  Router,
+  null,
+  React.createElement(
+    Route,
+    { path: '/', component: app },
+    React.createElement(IndexRoute, { component: one }),
+    React.createElement(Route, { path: '/two', component: two }),
+    React.createElement(Route, { path: '/three', component: three })
+  )
+), document.getElementById('app'));
+//# sourceURL=pen.js
+</script>
+</body></html>
